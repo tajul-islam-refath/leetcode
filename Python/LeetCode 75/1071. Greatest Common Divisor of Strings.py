@@ -18,3 +18,6 @@ class Solution:
 word1, word2 = input().split()
 solu = Solution()
 print(solu.gcdOfStrings(word1, word2))
+
+# Time complexity: O(min⁡(m,n)⋅(m+n))O(\min(m, n) \cdot (m + n))O(min(m,n)⋅(m+n))
+# Space complexity: O(min⁡(m,n))O(\min(m, n))O(min(m,n))

@@ -2,20 +2,23 @@ class Solution:
     def reverseVowels(self, s: str) -> str:
         left = 0
         right = len(s) - 1
+        s_list = list(s.lowercase())  # Convert the string to a list
 
         def isVowel(w):
-            return w == 'a' or w == 'e' or w == 'i' or w == 'o' or w == 'u'
+            return w in "AEIOUaeiou"
 
         while left < right:
-            if isVowel(s[left]) and isVowel(s[right]):
-                s[left], s[right] = s[right], s[left]
+            if isVowel(s_list[left]) and isVowel(s_list[right]):
+                s_list[left], s_list[right] = s_list[right], s_list[left]
                 left += 1
                 right -= 1
-            if not isVowel(s[left]):
+            if not isVowel(s_list[left]):
                 left += 1
-            if not isVowel(s[right]):
+            if not isVowel(s_list[right]):
                 right -= 1
-        return s
+
+        return ''.join(s_list)  # Convert the list back to a string
+
 
 child = Solution()
 print(child.reverseVowels("leetcode"))

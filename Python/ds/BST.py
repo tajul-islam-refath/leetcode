@@ -12,7 +12,7 @@ class BST:
     def insert(self, key):
         self.root = self._insert(self.root, key)
 
-    def _insert(self, root, key):
+    def _insert(self, root, key):  # O(log n)
         if root is None:
             return TreeNode(key)
         if key <= root.key:
@@ -21,7 +21,7 @@ class BST:
             root.right = self._insert(root.right, key)
         return root
 
-    def search(self, root, key):
+    def search(self, root, key):  # O(log n)
         if root is None:
             return False
 
@@ -33,7 +33,7 @@ class BST:
 
         return self.search(root.right, key)
 
-    def inorder_traversal(self, root):
+    def inorder_traversal(self, root):  # O(n) 
         if root:
             self.inorder_traversal(root.left)
             print(root.key, end=" ")

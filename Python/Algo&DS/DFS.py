@@ -6,16 +6,13 @@ class Graph:
     def add(self, vertex, neighbor):
         if vertex not in self.graph:
             self.graph[vertex] = []
-        if neighbor not in self.graph:
-            self.graph[neighbor] = []
-
         self.graph[vertex].append(neighbor)
-        self.graph[neighbor].append(vertex)
+
 
     def dfs(self, start):
         self.visited.add(start)
         print(f"{start}")
-        for vertex in self.graph[start]:
+        for vertex in self.graph.get(start, []):
             if vertex not in self.visited:
                 self.dfs(vertex)
 
